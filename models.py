@@ -1,13 +1,12 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 
-
 metadata = MetaData()
 
 db = SQLAlchemy(metadata=metadata)
 
 class Hero(db.Model):
-    _tablename_ = 'heroes'
+    __tablename__ = 'heroes' 
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
@@ -23,7 +22,7 @@ class Hero(db.Model):
         }
 
 class Power(db.Model):
-    _tablename_ = 'powers'
+    __tablename__ = 'powers'  
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
@@ -39,7 +38,7 @@ class Power(db.Model):
         }
 
 class HeroPower(db.Model):
-    _tablename_ = 'hero_powers'
+    __tablename__ = 'hero_powers'  
 
     id = db.Column(db.Integer, primary_key=True)
     strength = db.Column(db.String(20), nullable=False)
