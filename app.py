@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 
 from models import db, Hero, Power, HeroPower
 
+
 app = Flask(__name__)  # flask_
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -12,9 +13,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 migrate = Migrate(app, db)
 
+
 @app.route('/')
 def index():
     return {'message': 'Superheroes API'}
+
+
 
 # GET /heroes
 @app.route('/heroes', methods=['GET'])
